@@ -3,10 +3,8 @@ import PropTypes from "prop-types";
 
 //import "./App.css";
 
-function Profile(props) {
-  function handleName() {
-    alert(props.fullName);
-  }
+function Profile(props ) {
+  
   return (
     <>
       <div>{props.children}</div>
@@ -16,11 +14,15 @@ function Profile(props) {
         <br />
         <h4>{props.profession}</h4>
       </div>
-      <button onClick={handleName}>Alert</button>
+      <button onClick={() => props.handleName(props.fullName)}>Alert</button>
     </>
   );
 }
-
+Profile.defaultProps = {
+  fullName :"3eljia",
+  bio:"gghhghhhhh",
+  profession :"dagek tall"
+}
 Profile.propTypes = {
   fullName: PropTypes.string,
   bio: PropTypes.string,
